@@ -59,3 +59,4 @@ nunit-*.xml
 /ExcelPlusPlus/Backups
 /ExcelPlusPlus/Source/NET/.vs
 /ExcelPlusPlus/Source/NET/.vs
+/ExcelPlusPlus/Source/NET/packages
