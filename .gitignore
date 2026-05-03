@@ -57,3 +57,5 @@ TestResult.xml
 nunit-*.xml
 /ExcelPlusPlus/Source/NET/.vs
 /ExcelPlusPlus/Backups
+/ExcelPlusPlus/Source/NET/.vs
+/ExcelPlusPlus/Source/NET/.vs
