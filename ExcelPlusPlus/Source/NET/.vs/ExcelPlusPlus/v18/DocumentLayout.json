@@ -7,7 +7,11 @@
       "RelativeMoniker": "D:0:0:{7ECF0AB5-5D2A-4D3C-9F1D-0DF8983EF853}|ExcelPlusPlus.csproj|solutionrelative:excelplusplus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7ECF0AB5-5D2A-4D3C-9F1D-0DF8983EF853}|ExcelPlusPlus.csproj|c:\\workspace\\outsystems\\o11\\excelplusplus_o11\\excelplusplus\\source\\net\\entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\packages\\EPPlus.8.5.4\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:packages\\EPPlus.8.5.4\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ECF0AB5-5D2A-4D3C-9F1D-0DF8983EF853}|ExcelPlusPlus.csproj|C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7ECF0AB5-5D2A-4D3C-9F1D-0DF8983EF853}|ExcelPlusPlus.csproj|solutionrelative:entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,24 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "readme.txt",
+              "DocumentMoniker": "C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\packages\\EPPlus.8.5.4\\readme.txt",
+              "RelativeDocumentMoniker": "packages\\EPPlus.8.5.4\\readme.txt",
+              "ToolTip": "C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\packages\\EPPlus.8.5.4\\readme.txt",
+              "RelativeToolTip": "packages\\EPPlus.8.5.4\\readme.txt",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-03T04:25:00.56Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ExcelPlusPlus.cs",
               "DocumentMoniker": "C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\ExcelPlusPlus.cs",
               "RelativeDocumentMoniker": "ExcelPlusPlus.cs",
-              "ToolTip": "C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\ExcelPlusPlus.cs",
-              "RelativeToolTip": "ExcelPlusPlus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\ExcelPlusPlus.cs*",
+              "RelativeToolTip": "ExcelPlusPlus.cs*",
+              "ViewState": "AgIAAN0DAAAAAAAAAAAuwPEDAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-03T04:08:55.814Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Entities.cs",
               "DocumentMoniker": "C:\\Workspace\\OutSystems\\O11\\excelplusplus_O11\\ExcelPlusPlus\\Source\\NET\\Entities.cs",
               "RelativeDocumentMoniker": "Entities.cs",

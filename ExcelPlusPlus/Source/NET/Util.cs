@@ -55,14 +55,6 @@ namespace OutSystems.NssExcelPlusPlus
             return dtNew;
         }
 
-        public static byte[] ImageToByteArray(Image imageIn)
-        {
-            using (var ms = new MemoryStream())
-            {
-                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-                return ms.ToArray();
-            }
-        }
         public static DataTable ConvertArrayListToDataTable(IList<IRecord> arrayList)
         {
             DataTable dt = new DataTable();

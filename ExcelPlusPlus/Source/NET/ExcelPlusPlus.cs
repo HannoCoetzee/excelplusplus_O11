@@ -19,12 +19,13 @@ namespace OutSystems.NssExcelPlusPlus
     public class CssExcelPlusPlus : IssExcelPlusPlus
     {
 
-		/// <summary>
-		/// Action to convert Hex code of color to RGB value
-		/// </summary>
-		/// <param name="ssHexCode">Color hex code (eg. #FFFFFF)</param>
-		/// <param name="ssRGB">Color RGB value (eg. RGB(255, 255, 255))</param>
-		public void MssUtil_ConvertHexCodeToRGB(string ssHexCode, out string ssRGB) {
+        /// <summary>
+        /// Action to convert Hex code of color to RGB value
+        /// </summary>
+        /// <param name="ssHexCode">Color hex code (eg. #FFFFFF)</param>
+        /// <param name="ssRGB">Color RGB value (eg. RGB(255, 255, 255))</param>
+        public void MssUtil_ConvertHexCodeToRGB(string ssHexCode, out string ssRGB)
+        {
             // Remove the '#' if present
             //if (ssHexCode.StartsWith("#"))
             //ssHexCode = ssHexCode.Substring(1);
@@ -41,14 +42,15 @@ namespace OutSystems.NssExcelPlusPlus
             }
         } // MssUtil_ConvertHexCodeToRGB
 
-		/// <summary>
-		/// Get fill color of a cell, defined by its index.
-		/// </summary>
-		/// <param name="ssWorksheet">Worksheet on which the cell resides</param>
-		/// <param name="ssRow">Row number</param>
-		/// <param name="ssColumn">Column number</param>
-		/// <param name="ssFillColor">Fill color of the cell</param>
-		public void MssCell_GetFillColorByIndex(object ssWorksheet, int ssRow, int ssColumn, out string ssFillColor) {
+        /// <summary>
+        /// Get fill color of a cell, defined by its index.
+        /// </summary>
+        /// <param name="ssWorksheet">Worksheet on which the cell resides</param>
+        /// <param name="ssRow">Row number</param>
+        /// <param name="ssColumn">Column number</param>
+        /// <param name="ssFillColor">Fill color of the cell</param>
+        public void MssCell_GetFillColorByIndex(object ssWorksheet, int ssRow, int ssColumn, out string ssFillColor)
+        {
             // Select the worksheet
             ExcelWorksheet ws;
             ws = (ExcelWorksheet)ssWorksheet;
@@ -70,13 +72,14 @@ namespace OutSystems.NssExcelPlusPlus
             }
         } // MssCell_GetFillColorByIndex
 
-		/// <summary>
-		/// Get fill color of a cell, defined by its name.
-		/// </summary>
-		/// <param name="ssWorksheet">Worksheet on which the cell resides</param>
-		/// <param name="ssCellName">Cell name (eg. A1)</param>
-		/// <param name="ssFillColor">Fill color of the cell</param>
-		public void MssCell_GetFillColorByName(object ssWorksheet, string ssCellName, out string ssFillColor) {
+        /// <summary>
+        /// Get fill color of a cell, defined by its name.
+        /// </summary>
+        /// <param name="ssWorksheet">Worksheet on which the cell resides</param>
+        /// <param name="ssCellName">Cell name (eg. A1)</param>
+        /// <param name="ssFillColor">Fill color of the cell</param>
+        public void MssCell_GetFillColorByName(object ssWorksheet, string ssCellName, out string ssFillColor)
+        {
             // Select the worksheet
             ExcelWorksheet ws;
             ws = (ExcelWorksheet)ssWorksheet;
@@ -98,16 +101,17 @@ namespace OutSystems.NssExcelPlusPlus
             }
         } // MssCell_GetFillColorByName
 
-		/// <summary>
-		/// Copy a range of rows
-		/// </summary>
-		/// <param name="ssWorksheet"></param>
-		/// <param name="ssRangeStart">Example: A1:B5</param>
-		/// <param name="ssRangeEnd">Example: G1:H5</param>
-		public void MssWorksheet_CopyRows(object ssWorksheet, string ssRangeStart, string ssRangeEnd) {
-			var ws = ssWorksheet as ExcelWorksheet;
+        /// <summary>
+        /// Copy a range of rows
+        /// </summary>
+        /// <param name="ssWorksheet"></param>
+        /// <param name="ssRangeStart">Example: A1:B5</param>
+        /// <param name="ssRangeEnd">Example: G1:H5</param>
+        public void MssWorksheet_CopyRows(object ssWorksheet, string ssRangeStart, string ssRangeEnd)
+        {
+            var ws = ssWorksheet as ExcelWorksheet;
             ws.Cells[ssRangeStart].Copy(ws.Cells[ssRangeEnd]);
-		} // MssWorksheet_CopyRows
+        } // MssWorksheet_CopyRows
 
 
         /// <summary>
@@ -468,9 +472,11 @@ namespace OutSystems.NssExcelPlusPlus
         {
             ExcelWorksheet ws = (ExcelWorksheet)ssWorksheet;
 
-            Image i = Image.FromStream(new MemoryStream(ssImage));
-            ExcelPicture pic = ws.Drawings.AddPicture(ssImageName, i);
-            pic.SetPosition(ssRow, 0, ssColumn, 0);
+            using (MemoryStream ms = new MemoryStream(ssImage))
+            {
+                ExcelPicture pic = ws.Drawings.AddPicture(ssImageName, ms);
+                pic.SetPosition(ssRow, 0, ssColumn, 0);
+            }
         } // MssCell_WriteImageByIndex
 
         /// <summary>
@@ -686,7 +692,7 @@ namespace OutSystems.NssExcelPlusPlus
             {
                 Img.ssSTImage.ssName = pics[i].Name;
                 picture = pics[i] as ExcelPicture;
-                Img.ssSTImage.ssContent = Util.ImageToByteArray(picture.Image);
+                Img.ssSTImage.ssContent = picture.Image.ImageBytes;
                 Img.ssSTImage.ssColumn = pics[i].From.Column;
                 Img.ssSTImage.ssRow = pics[i].From.Row;
                 ssImages.Append(Img);
@@ -1007,14 +1013,12 @@ namespace OutSystems.NssExcelPlusPlus
 
             MemoryStream ms = new MemoryStream(ssImageFile);
 
-            using (Bitmap bitmap = new Bitmap(ms))
+            using (ExcelPicture picture = ws.Drawings.AddPicture(ssImageName, ms))
             {
-                using (ExcelPicture picture = ws.Drawings.AddPicture(ssImageName, bitmap))
-                {
-                    picture.SetPosition(range.Start.Row - 1, ssMarginTop, range.Start.Column - 1, ssMarginLeft);
-                    picture.SetSize(ssImageWidth, ssImageHeight);
-                }
+                picture.SetPosition(range.Start.Row - 1, ssMarginTop, range.Start.Column - 1, ssMarginLeft);
+                picture.SetSize(ssImageWidth, ssImageHeight);
             }
+
             range.Dispose();
         } // MssImage_Insert
 
@@ -1095,7 +1099,6 @@ namespace OutSystems.NssExcelPlusPlus
         /// <param name="ssText">The comment.</param>
         /// <param name="ssAuthor">The author of the comment.</param>
         /// <param name="ssAutofit"></param>
-        /// <param name="ssIsRichText"></param>
         public void MssComment_Add(object ssWorksheet, int ssRowNumber, int ssColumnNumber, string ssText, string ssAuthor, bool ssAutofit)
         {
             ExcelWorksheet ws = ssWorksheet as ExcelWorksheet;
